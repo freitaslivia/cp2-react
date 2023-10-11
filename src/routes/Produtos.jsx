@@ -3,11 +3,13 @@ import { RiDeleteBin2Fill as Excluir } from "react-icons/ri";
 import style from "./Produtos.module.css";
 import { useEffect, useState } from "react";
 import "./Produtos.scss";
+import ModalInserir from "../components/ModalInserir/ModalInserir";
 
 export default function Produtos() {
   document.title = "Produtos";
 
   const [listaProdutoExterna, setListaProdutoExterna] = useState([]);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost:5000/produtos", {
@@ -27,6 +29,8 @@ export default function Produtos() {
   return (
     <div>
       <h1>LISTA DE PRODUTOS</h1>
+
+      {open ? <ModalInserir open={open} setOpen={setOpen} /> : ""}
 
       <table className={style.tblEstilo}>
         <thead>
