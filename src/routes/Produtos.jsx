@@ -1,8 +1,6 @@
 import { GrFormEdit as Editar } from "react-icons/gr";
 import { RiDeleteBin2Fill as Excluir } from "react-icons/ri";
-import style from "./Produtos.module.css";
 import { useEffect, useState } from "react";
-import "./Produtos.scss";
 import ModalInserir from "../components/ModalInserir/ModalInserir";
 
 export default function Produtos() {
