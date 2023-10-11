@@ -2,12 +2,17 @@ import { GrFormEdit as Editar } from "react-icons/gr";
 import { RiDeleteBin2Fill as Excluir } from "react-icons/ri";
 import { useEffect, useState } from "react";
 import ModalInserir from "../components/ModalInserir/ModalInserir";
+import ModalExcluir from "../components/ModalExcluir/ModalExcluir";
+import ModalEditar from "../components/ModalEditar/ModalEditar";
 
 export default function Produtos() {
   document.title = "Produtos";
 
   const [listaProdutoExterna, setListaProdutoExterna] = useState([]);
   const [open, setOpen] = useState(false);
+  const [openExcluir, setOpenExcluir] = useState(false);
+  const [openEditar, setOpenEditar] = useState(false);
+  const [produtoSelecionado, setProdutoSelecionado] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:5000/produtos", {
@@ -23,6 +28,15 @@ export default function Produtos() {
       .catch((error) => console.log(error));
   }, []);
 
+  const handleOpenEditar = (produto) => {
+    setProdutoSelecionado(produto); 
+    setOpenEditar(true);
+  };
+
+  const handleOpenExcluir = (produto) => {
+    setProdutoSelecionado(produto); 
+    setOpenExcluir(true);
+  };
 
   return (
     <div>
@@ -30,7 +44,24 @@ export default function Produtos() {
 
       {open ? <ModalInserir open={open} setOpen={setOpen} /> : ""}
 
-      <table className={style.tblEstilo}>
+      {openExcluir ? 
+        <ModalExcluir openExcluir={openExcluir}
+          setOpenExcluir={setOpenExcluir}
+          produto={produtoSelecionado}
+        />
+       : ""}
+
+      {openEditar ? 
+        <ModalEditar
+          openEditar={openEditar}
+          setOpenEditar={setOpenEditar}
+          produto={produtoSelecionado} 
+        />
+       : ""}
+
+      <button onClick={() => setOpen(true)}>OPEN-MODAL</button>
+
+      <table>
         <thead>
           <tr>
             <th>ID</th>
@@ -42,16 +73,16 @@ export default function Produtos() {
         </thead>
         <tbody>
           {listaProdutoExterna.map((item, indice) => (
-            <tr key={indice} className={style.tblLine}>
+            <tr key={indice}>
               <td>{item.id}</td>
               <td>{item.nome}</td>
               <td>{item.desc}</td>
               <td>{item.valor}</td>
               <td>
-                <button>
+                <button onClick={() => handleOpenEditar(item)}>
                   <Editar />
                 </button>
-                <button>
+                <button onClick={() => handleOpenExcluir(item)}>
                   <Excluir />
                 </button>
               </td>
