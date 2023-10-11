@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styles from "./ModalInserir.module.css";
 
 export default function ModalInserir(props) {
 
@@ -10,7 +9,6 @@ export default function ModalInserir(props) {
     valor:""
   });
   const handleChange = (e) =>{
-    //Destructuring dos dados que chegam do form.
     const {name, value} = e.target;
     setProduto({...produto,[name]:value});
   }
