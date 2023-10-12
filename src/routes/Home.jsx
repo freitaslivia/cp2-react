@@ -1,7 +1,10 @@
 export default function Home() {
-    return (
-      <div>
-        <h1>Home</h1>
-      </div>
-    )
-  }
+  return (
+    <div className="Home">
+      <h1>Home</h1>
+      <figure>
+        <img src="/img/produtos_all.jpg" alt="Vários produtodos" />
+      </figure>
+    </div>
+  )
+}
