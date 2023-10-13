@@ -40,7 +40,7 @@ export default function Produtos() {
   };
 
   return (
-    <div>
+    <div className="Produtos">
       <h1>LISTA DE PRODUTOS</h1>
 
       {open ? <ModalInserir open={open} setOpen={setOpen} /> : ""}
@@ -60,7 +60,7 @@ export default function Produtos() {
         />
        : ""}
 
-      <button onClick={() => setOpen(true)}>OPEN-MODAL</button>
+      <button onClick={() => setOpen(true)}>CADASTRAR</button>
 
       <table>
         <thead>
