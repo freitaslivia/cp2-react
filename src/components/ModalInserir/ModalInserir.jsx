@@ -32,7 +32,7 @@ export default function ModalInserir(props) {
 
   if (props.open) {
     return (
-      <div className={styles.container}>
+      <div>
         <h1>CADASTRO DE PRODUTOS</h1>
         <button onClick={()=> props.setOpen(false)}>X</button>
 
