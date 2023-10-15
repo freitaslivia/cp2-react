@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "../ModalInserir/ModalInserirEditar.scss";
 
 export default function ModalEditar(props) {
   const [produto, setProduto] = useState({
@@ -42,7 +43,7 @@ export default function ModalEditar(props) {
 
   if (props.openEditar) {
     return (
-      <div>
+      <div className="Modal">
         <h1>Editar Produto</h1>
 
         <button onClick={()=> props.setOpenEditar(false)}>X</button>
@@ -50,33 +51,15 @@ export default function ModalEditar(props) {
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="nome">Nome do Produto:</label>
-            <input
-              type="text"
-              id="nome"
-              name="nome"
-              value={produto.nome}
-              onChange={handleChange}
-            />
+            <input type="text" id="nome" name="nome" value={produto.nome} onChange={handleChange}/>
           </div>
           <div>
             <label htmlFor="desc">Descrição do Produto:</label>
-            <input
-              type="text"
-              id="desc"
-              name="desc"
-              value={produto.desc}
-              onChange={handleChange}
-            />
+            <input type="text" id="desc" name="desc" value={produto.desc} onChange={handleChange}/>
           </div>
           <div>
             <label htmlFor="valor">Valor do Produto:</label>
-            <input
-              type="text"
-              id="valor"
-              name="valor"
-              value={produto.valor}
-              onChange={handleChange}
-            />
+            <input type="text" id="valor" name="valor" value={produto.valor} onChange={handleChange}/>
           </div>
           <button type="submit">Salvar</button>
         </form>

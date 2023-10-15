@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./ModalInserirEditar.scss"
 
 export default function ModalInserir(props) {
 
@@ -32,7 +33,7 @@ export default function ModalInserir(props) {
 
   if (props.open) {
     return (
-      <div>
+      <div className="Modal">
         <h1>CADASTRO DE PRODUTOS</h1>
         <button onClick={()=> props.setOpen(false)}>X</button>
 
