@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./ModalInserirEditar.scss"
+import "./ModalInserirEditar.scss";
 
 export default function ModalInserir(props) {
 

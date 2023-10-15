@@ -10,7 +10,7 @@ export default function Cabecalho() {
 
   return (
     <>
-      <header className="cabecalho">
+      <header className="Cabecalho">
         <ul>
           <li>
             <Link to="/" className={rotaAtual.pathname == "/" ? "active" : ""}>HOME - <H/></Link>

@@ -61,7 +61,9 @@ export default function ModalEditar(props) {
             <label htmlFor="valor">Valor do Produto:</label>
             <input type="text" id="valor" name="valor" value={produto.valor} onChange={handleChange}/>
           </div>
+          <div>
           <button type="submit">Salvar</button>
+          </div>       
         </form>
       </div>
     );
